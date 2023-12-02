@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using Utility;
 
 namespace Day1
 {
@@ -9,7 +10,7 @@ namespace Day1
     {
         private static void Main(string[] args)
         {
-            var input = Utility.InputHelper.ReadInputFile("1.txt");
+            var input = InputHelper.ReadInputFile("01.txt");
 
             int sum1 = CalculateCalibrationValue(input);
             Console.WriteLine(sum1);
