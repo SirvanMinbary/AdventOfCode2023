@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -6,16 +7,12 @@ namespace Day1
 {
     internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"Advent of Code/2023/1.txt");
-            var input = File.ReadAllLines(path);
+            var input = Utility.InputHelper.ReadInputFile("1.txt");
 
             int sum1 = CalculateCalibrationValue(input);
             Console.WriteLine(sum1);
-
-            int testSum = CalculateCalibrationWithLetters(TestInput());
-            Console.WriteLine(testSum);
 
             int sum2 = CalculateCalibrationWithLetters(input);
             Console.WriteLine(sum2);
@@ -76,20 +73,6 @@ namespace Day1
                     _ => throw new Exception($"Could not parse value: {value}"),
                 };
             }
-        }
-
-        private static string[] TestInput()
-        {
-            return new[]
-            {
-                "two1nine",
-                "eightwothree",
-                "abcone2threexyz",
-                "xtwone3four",
-                "4nineeightseven2",
-                "zoneight234",
-                "7pqrstsixteen"
-            };
         }
     }
 }
