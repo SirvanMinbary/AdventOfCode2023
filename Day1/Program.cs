@@ -10,7 +10,7 @@ namespace Day1
     {
         private static void Main(string[] args)
         {
-            var input = InputHelper.ReadInputFile("01.txt");
+            var input = InputHelper.ReadInput("01.txt");
 
             int sum1 = CalculateCalibrationValue(input);
             Console.WriteLine(sum1);

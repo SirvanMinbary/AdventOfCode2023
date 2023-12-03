@@ -9,7 +9,7 @@ namespace Day02
     {
         static void Main(string[] args)
         {
-            var input = InputHelper.ReadInputFile("02.txt");
+            var input = InputHelper.ReadInput("02.txt");
 
             var redLimit = 12;
             var greenLimit = 13;

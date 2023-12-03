@@ -5,10 +5,14 @@ namespace Utility
 {
     public static class InputHelper
     {
-        public static string[] ReadInputFile(string fileName)
+        public static string[] ReadInput(string fileName)
         {
-            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @$"Advent of Code/2023/{fileName}");
-            return File.ReadAllLines(path);
+            return File.ReadAllLines(GetPath(fileName));
+        }
+
+        private static string GetPath(string fileName)
+        {
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @$"Advent of Code/2023/{fileName}");
         }
     }
 }
