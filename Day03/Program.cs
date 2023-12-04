@@ -125,7 +125,8 @@ namespace Day03
                 candidates.Add(FindNumber(x, aboveLine, false).GetValueOrDefault());
                 candidates.Add(FindNumber(x + 1, aboveLine, true).GetValueOrDefault());
                 candidates.Add(FindNumber(x + 1, aboveLine, false).GetValueOrDefault());
-                partNumbers.Add(candidates.Max());
+                partNumbers.AddRange(candidates.OrderDescending().Where(c => c > 0).Take(2));
+                //partNumbers.Add(candidates.Max());
             }
 
             if (x != 0)
@@ -151,10 +152,10 @@ namespace Day03
                 var candidates = new List<int>();
                 var line = Input[y + 1];
 
-                var aboveLeft = FindNumber(x - 1, line, true);
-                if (aboveLeft != null)
+                var belowLeft = FindNumber(x - 1, line, true);
+                if (belowLeft != null)
                 {
-                    candidates.Add(aboveLeft.Value);
+                    candidates.Add(belowLeft.Value);
                     var aboveLeftBackward = FindNumber(x - 1, line, false);
                     candidates.Add(aboveLeftBackward.Value);
 
@@ -165,7 +166,8 @@ namespace Day03
                 candidates.Add(FindNumber(x, line, false).GetValueOrDefault());
                 candidates.Add(FindNumber(x + 1, line, true).GetValueOrDefault());
                 candidates.Add(FindNumber(x + 1, line, false).GetValueOrDefault());
-                partNumbers.Add(candidates.Max());
+                partNumbers.AddRange(candidates.OrderDescending().Where(c => c > 0).Take(2));
+                //partNumbers.Add(candidates.Max());
             }
 
             partNumbers = partNumbers.Where(n => n != 0).ToList();
